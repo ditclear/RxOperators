@@ -71,7 +71,66 @@
 	
 	用这个代码，你可以创建一个以初始值来延迟执行的interval()版本，然后每隔N秒就发射一个新的数字
 
+>###Take
 
+	emit only the first n items emitted by an Observable
 
+	只取开头的几个元素
+
+>###TakeLast
+
+	emit only the last n items emitted by an Observable
+
+	只取结尾的几个元素
+	
+>###Distinct
+
+	suppress duplicate items emitted by an Observable
+
+	去掉重复的元素
+	
+>###DistinctUntilsChanged
+
+	suppress duplicate items emitted by an Observable
+
+	忽略掉所有的重复并且只发射出新的值
+
+>###Skip
+
+	suppress the first n items emitted by an Observable
+
+	创建一个不发射前n个元素而是发射它后面的那些数据的Observable
+
+>###SkipLast
+
+	suppress the final n items emitted by an Observable
+
+	创建一个跳过后面n个元素从源序列中发射剩下的其他元素的Observable	
+	
+>###ElementAt
+
+	emit only item n emitted by an Observable
+
+	仅从一个序列中发射第n个元素
+	
+>###Sample
+
+	emit the most recent items emitted by an Observable within periodic time intervals
+	
+	创建一个新的可观测序列，它将在一个指定的时间间隔里由Observable发射最近一次的数值
+	
+>###Timeout
+
+	mirror the source Observable, but issue an error notification if a particular period of time elapses without any emitted items
+	
+	如果在指定的时间间隔内Observable不发射值的话，它监听的原始的Observable时就会触发onError()函数
+	
+>###Debounce
+
+	only emit an item from an Observable if a particular timespan has passed without it emitting another item
+	
+	过滤掉由Observable发射的速率过快的数据；如果在一个指定的时间间隔过去了仍旧没有发射一个，那么它将发射最后的那个
+	
+		
 
 
