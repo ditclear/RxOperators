@@ -62,11 +62,11 @@
 
 	一段时间之后才发射的Observable
 
-`timer(3,TimeUnit.SECONDS)`
+	timer(3,TimeUnit.SECONDS)
 
 	它将3秒后发射0,然后就完成了
 
-`timer(3,3,TimeUnit.SECONDS)`
+	timer(3,3,TimeUnit.SECONDS)
 
 	
 	用这个代码，你可以创建一个以初始值来延迟执行的interval()版本，然后每隔N秒就发射一个新的数字
