@@ -30,7 +30,7 @@
 
 	create an Observable that emits a particular item
 
-创建一个特定输入的Observable
+	创建一个特定输入的Observable
 
 >###Repeat
 
@@ -131,6 +131,69 @@
 	
 	过滤掉由Observable发射的速率过快的数据；如果在一个指定的时间间隔过去了仍旧没有发射一个，那么它将发射最后的那个
 	
-		
+>###Scan
 
+	apply a function to each item emitted by an Observable, sequentially, and emit each successive value
 
+	scan()函数可以看做是一个累加器函数。scan()函数对原始Observable发射的每一项数据都应用一个函数，它将函数的结果填充回可观测序列，等待和下一次发射的数据一起使用
+
+给出一个累加器：
+
+	Observable.just(1,2,3,4,5)
+        .scan((sum,item) -> sum + item)
+        .subscribe(new Subscriber<Integer>() {
+            @Override
+            public void onCompleted() {
+                Log.d("RXJAVA", "Sequence completed.");
+            }
+ 
+            @Override
+            public void onError(Throwable e) {
+                Log.e("RXJAVA", "Something went south!");
+            }
+ 
+            @Override
+            public void onNext(Integer item) {
+                Log.d("RXJAVA", "item is: " + item);
+            }
+        });
+        
+我们得到的结果是：
+        
+	RXJAVA: item is: 1
+	RXJAVA: item is: 3
+	RXJAVA: item is: 6
+	RXJAVA: item is: 10
+	RXJAVA: item is: 15
+	RXJAVA: Sequence completed.
+
+>###GroupBy
+
+	divide an Observable into a set of Observables that each emit a different group of items from the original Observable, organized by key
+
+	将源Observable变换成一个发射Observables的新的Observable。它们中的每一个新的Observable都发射一组指定的数据
+	
+>###Buffer
+
+	periodically gather items from an Observable into bundles and emit these bundles rather than emitting the items one at a time
+
+	将源Observable变换一个新的Observable，这个新的Observable每次发射一组列表值而不是一个一个发射
+
+>###Window
+
+	periodically subdivide items from an Observable into Observable windows and emit these windows rather than emitting the items one at a time
+
+	window()函数和buffer()很像，但是它发射的是Observable而不是列表
+	
+	这些Observables中的每一个都发射原始Observable数据的一个子集，数量由count指定,最后发射一个onCompleted()结束
+
+>###Cast
+
+	transform the items emitted by an Observable by applying a function to each item
+
+	它是map()操作符的特殊版本。它将源Observable中的每一项数据都转换为新的类型，把它变成了不同的Class
+
+	
+	
+	
+	
