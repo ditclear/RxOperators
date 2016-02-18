@@ -1,6 +1,11 @@
 ###ReactiveX操作符
 ---
+>###From
 
+	convert various other objects and data types into Observables
+
+	from()接收一个集合作为输入，然后每次输出一个元素给subscriber.
+	
 >###Map
 
 	transform the items emitted by an Observable by applying a function to each item
@@ -8,17 +13,11 @@
 	用来把一个事件转换为另一个事件。
 	map()操作符就是用于变换Observable对象的，map操作符返回一个Observable对象，这样就可以实现链式调用，在一个Observable对象上多次使用map操作符，最终将最简洁的数据传递给Subscriber对象。
 
->###From
-
-	convert various other objects and data types into Observables
-
-	from()接收一个集合作为输入，然后每次输出一个元素给subscriber.
-
 >###FlatMap
 
 	transform the items emitted by an Observable into Observables, then flatten the emissions from those into a single Observable
 
-	Observable.flatMap()接收一个Observable的输出作为输入，同时输出另外一个Observable。
+	在复杂的场景中，我们有一个这样的Observable：它发射一个数据序列，这些数据本身也可以发射Observable。RxJava的flatMap()函数提供一种铺平序列的方式，然后合并这些Observables发射的数据，最后将合并后的结果作为最终的Observable
 
 >###Filter 
 
