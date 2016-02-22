@@ -192,7 +192,21 @@
 
 	它是map()操作符的特殊版本。它将源Observable中的每一项数据都转换为新的类型，把它变成了不同的Class
 
+>###Merge
+
+	combine multiple Observables into one by merging their emissions
+
+	帮助你把两个甚至更多的Observables合并到他们发射的数据里
+
+>###ZIP
+
+	 combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function
+
+	合并两个或者多个Observables发射出的数据项，根据指定的函数Func*变换它们，并发射一个新值	
 	
-	
-	
+>###Join
+
+	combine items emitted by two Observables whenever an item from one Observable is emitted during a time window defined according to an item emitted by the other Observable
+
+	基于时间窗口将两个Observables发射的数据结合在一起。	
 	
